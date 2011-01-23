@@ -10,31 +10,17 @@ if(!defined('DOKU_INC')) die();
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
-class syntax_plugin_plaintext extends DokuWiki_Syntax_Plugin {
+class syntax_plugin_plaintext_inline extends DokuWiki_Syntax_Plugin {
 
     function getType() { return 'protected';}
     function getPType() { return 'normal';}
     function getSort() { return 20; }
 
     /**
-     * return some info
-     */
-    function getInfo(){
-        return array(
-            'author' => 'Danny Lin',
-            'email'  => 'danny0838[at]pchome[dot]com[dot]tw',
-            'date'   => '2011-01-01',
-            'name'   => 'Plain Text',
-            'desc'   => '<text> tag that embeds plain text with linebreaks.',
-            'url'    => 'http://www.dokuwiki.org/plugin:plaintext',
-        );
-    }
-
-    /**
      * Connect pattern to lexer
      */
     function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('<text>.*?</text>', $mode, 'plugin_plaintext');
+        $this->Lexer->addSpecialPattern('<text>.*?</text>', $mode, 'plugin_plaintext_inline');
     }
 
     /**

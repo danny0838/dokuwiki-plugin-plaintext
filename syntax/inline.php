@@ -37,6 +37,9 @@ class syntax_plugin_plaintext_inline extends DokuWiki_Syntax_Plugin {
         if($format == 'xhtml'){
             $renderer->doc .= str_replace( "\n", "<br/>", trim($renderer->_xmlEntities($data),"\n") );
             return true;
+        }else if($format == 'metadata'){
+            $renderer->doc .= trim($data);
+            return true;
         }
         return false;
     }

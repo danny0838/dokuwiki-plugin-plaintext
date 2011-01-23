@@ -49,7 +49,7 @@ class syntax_plugin_plaintext_block extends DokuWiki_Syntax_Plugin {
      */
     function render($format, &$renderer, $data) {
         if($format == 'xhtml'){
-			list($state) = $data;
+            list($state) = $data;
             switch ($state) {
                 case DOKU_LEXER_ENTER:
                     $renderer->doc .= '<pre class="code plaintext">';

@@ -31,7 +31,7 @@ class syntax_plugin_plaintext_block extends DokuWiki_Syntax_Plugin {
     /**
      * Handle the match
      */
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Handler $handler){
         switch ($state) {
             case DOKU_LEXER_ENTER:
                 return array($state);
@@ -47,7 +47,7 @@ class syntax_plugin_plaintext_block extends DokuWiki_Syntax_Plugin {
     /**
      * Create output
      */
-    function render($format, &$renderer, $data) {
+    function render($format, Doku_Renderer $renderer, $data) {
         if($format == 'xhtml'){
             list($state) = $data;
             switch ($state) {
